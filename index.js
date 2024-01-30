@@ -15,7 +15,7 @@ const PORT=4000
 // };
 
 // application.use(cors(corsOptions))
-application.use(cors());
+application.use(cors({credentials:true,origin:['http://localhost:3000']}))
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
 application.use(cookieparser())
