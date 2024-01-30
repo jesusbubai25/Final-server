@@ -6,7 +6,7 @@ const handleRoutes = require("./route")
 const cookieparser = require("cookie-parser")
 require('dotenv').config({ path: "./config.env" })
 const bcryptjs = require("bcryptjs");
-const PORT=4000
+const PORT = 4000
 
 // const corsOptions = {
 //   origin: ["http://localhost:3000","http://localhost:8000"],
@@ -15,14 +15,18 @@ const PORT=4000
 // };
 
 // application.use(cors(corsOptions))
-application.use(cors());
+// application.use(cors({
+//   origin: ["http://195.35.21.41:8000", "http://localhost:3000", "http://localhost:8000"],
+//   credentials: true,
+//   optionsSuccessStatus: 200
+// }));
+
+
+application.use(cors({credentials:true,origin:['http://localhost:3000']}))
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
 application.use(cookieparser())
 application.use(handleRoutes)
-
-
-
 
 
 

@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken")
 const mysql = require('mysql2')
 
 
-
 const pool = mysql.createPool({
     host: "141.136.43.151",
     user: 'u188495358_pvAPMDB',
@@ -16,7 +15,8 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 exports.isAuth = async (req, res, next) => {
-    const { auth_token } = req.cookies;
+    // const { auth_token } = req.cookies;
+    const auth_token=req.body?.auth_token 
     if (!auth_token) {
         return res.status(401).json({ error: "Please login to access the details", sucess: false })
     }
