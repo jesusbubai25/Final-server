@@ -133,7 +133,7 @@ exports.LoginHandler = async (req, res) => {
       expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
       httpOnly: true,
       sameSite:"none",
-      secure:true
+      secure:false
     }
     return res.status(200).cookie("auth_token",jwt_token,options).json({ user: rows[0],auth_token:jwt_token, sucess: true });
 
@@ -208,7 +208,7 @@ exports.sendOtpHandler = async (req, res) => {
       expires: new Date(Date.now() + 5 * 60 * 1000),
       httpOnly: true,
       sameSite:"none",
-      secure:true
+      secure:false
     }
     await connection.commit();
     return res.status(200).cookie("auth_otp", otp, options2).json({ error: `otp sent to the user successfully  OTP is ${otp}`, sucess: true })
@@ -255,7 +255,7 @@ exports.verifyOtpHandler = async (req, res) => {
       `
     }
     await sendEmail(options)
-    return res.status(200).cookie("auth_otp", null, { expires: new Date(Date.now()), httpOnly: true ,sameSite:"none",secure:true}).json({ message: "Otp verified sucessfully! and password sent to your email", sucess: true })
+    return res.status(200).cookie("auth_otp", null, { expires: new Date(Date.now()), httpOnly: true ,sameSite:"none",secure:false}).json({ message: "Otp verified sucessfully! and password sent to your email", sucess: true })
 
   } catch (error) {
     console.log(error.message);
@@ -293,7 +293,7 @@ exports.reSendOtpHandler = async (req, res) => {
       expires: new Date(Date.now() + 5 * 60 * 1000),
       httpOnly: true,
       sameSite:"none",
-      secure:true
+      secure:false
     }
     return res.status(200).cookie("auth_otp", otp, options2).json({ error: `otp sent to the user successfully  OTP is ${otp}`, sucess: true })
 
