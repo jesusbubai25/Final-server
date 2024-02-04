@@ -22,14 +22,10 @@ const PORT = 4000
 // }));
 
 
-<<<<<<< HEAD
 application.use(cors({
   origin:"*",
   credentials:true
 }))
-=======
-application.use(cors({credentials:true,origin:['http://localhost:3000','https://greenencopvapm.com']}))
->>>>>>> 204cfa0c3aaa3de4c993eb6db94f2464add2e2f9
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
 application.use(cookieparser())
