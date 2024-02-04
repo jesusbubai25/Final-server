@@ -5,7 +5,6 @@ const cors = require("cors");
 const handleRoutes = require("./route")
 const cookieparser = require("cookie-parser")
 require('dotenv').config({ path: "./config.env" })
-const bcryptjs = require("bcryptjs");
 const PORT = 4000
 
 // const corsOptions = {

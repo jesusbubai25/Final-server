@@ -56,8 +56,6 @@ exports.InverterEfficiency = async (req, res) => {
 
 };
 
-
-
 //Get inverter-efficiency-monthly
 exports.InverterEfficiencyMonthly = async (req, res) => {
   let connection;
