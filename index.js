@@ -23,7 +23,7 @@ const PORT = 4000
 
 
 application.use(cors({
-  origin:"*",
+  origin:"http://greenencopvapm.com",
   credentials:true
 }))
 application.use(bodyparser.urlencoded({ extended: true }))
