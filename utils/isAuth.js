@@ -15,8 +15,8 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 exports.isAuth = async (req, res, next) => {
-    // const { auth_token } = req.cookies;
-    const auth_token=req.body?.auth_token 
+    const { auth_token } = req.cookies;
+    // const auth_token = req.body?.auth_token
     if (!auth_token) {
         return res.status(401).json({ error: "Please login to access the details", sucess: false })
     }

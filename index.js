@@ -22,7 +22,10 @@ const PORT = 4000
 // }));
 
 
-application.use(cors({credentials:true,origin:['http://localhost:3000']}))
+application.use(cors({
+  origin:"*",
+  credentials:true
+}))
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
 application.use(cookieparser())
